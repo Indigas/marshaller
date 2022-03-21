@@ -35,7 +35,9 @@ public class MyMarshaller {
         Writer writer = new StringWriter();
 
         //marshaller=context.createMarshaller();
-       // synchronized (marshaller) {
+
+        // possible fix with synchronized for thread-safe operation
+        //synchronized (marshaller) {
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             try {
                 marshaller.marshal(book, writer);
