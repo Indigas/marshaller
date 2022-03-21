@@ -8,7 +8,7 @@ import java.io.Writer;
 import java.util.Date;
 
 public class MyMarshaller {
-    private final Marshaller marshaller;
+    private  Marshaller marshaller;
     private static JAXBContext context;
 
     static {
@@ -34,12 +34,15 @@ public class MyMarshaller {
 
         Writer writer = new StringWriter();
 
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        try {
+        //marshaller=context.createMarshaller();
+       // synchronized (marshaller) {
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            try {
                 marshaller.marshal(book, writer);
-        } catch (Exception e){
-            e.printStackTrace();
-         //   this.marshall();
-        }
+            } catch (Exception e) {
+                e.printStackTrace();
+                //   this.marshall();
+            }
+       // }
     }
 }
