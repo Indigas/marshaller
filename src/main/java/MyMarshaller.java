@@ -34,6 +34,7 @@ public class MyMarshaller {
 
         Writer writer = new StringWriter();
 
+
         //marshaller=context.createMarshaller();
 
         // possible fix with synchronized for thread-safe operation
@@ -44,6 +45,7 @@ public class MyMarshaller {
             } catch (Exception e) {
                 e.printStackTrace();
                 //   this.marshall();
+
             }
        // }
     }
